@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Artist = sequelize.define("Artist", {
+
         name:{
             type: DataTypes.STRING,
             unique: true,
@@ -24,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
             Artist.belongsToMany(models.Playlist, {through: "SongPlaylist"})
         }
         
+
         return Artist;
 
     }
