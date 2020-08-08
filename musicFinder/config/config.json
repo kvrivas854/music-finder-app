@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Theyankees1",
-    "database": "database_development",
+    "password": "BentleyBear8!",
+    "database": "playlist_db",
     "host": "localhost",
     "dialect": "mysql"
   },
