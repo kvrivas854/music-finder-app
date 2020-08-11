@@ -131,7 +131,7 @@ img {
 
 /* main */
 body {
-    background-image: url("dark-purple.jpg");
+    background-image: url("public/dark-purple.jpg");
     background-size: cover;
 }
 
