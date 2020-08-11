@@ -28,6 +28,13 @@ var routes = require("./routes/musicRoutes.js");
 
 app.use(routes);
 
+app.get('/', function (req, res) {
+  res.render('frontpage')
+})
+
+app.get('/contact', function(req,res) {
+  res.render('contact')
+})
 
 // // Start our server so that it can begin listening to client requests.
 // app.listen(PORT, function() {
