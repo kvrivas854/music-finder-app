@@ -36,6 +36,14 @@ app.get('/contact', function(req,res) {
   res.render('contact')
 })
 
+app.get('/search', function(req,res) {
+  res.render('search')
+})
+
+app.get('/charts', function(req,res) {
+  res.render('charts')
+})
+
 // // Start our server so that it can begin listening to client requests.
 // app.listen(PORT, function() {
 //   // Log (server-side) when our server has started
