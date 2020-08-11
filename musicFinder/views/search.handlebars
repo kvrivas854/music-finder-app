@@ -12,7 +12,7 @@
     
   </div>
  
-  <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+  <div id="top_x_div" style="margin: 50px 110px"> Results </div>
   
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -103,14 +103,13 @@ $.ajax({
 
 $(document).on("click", ".add-track", function () {
   console.log($(this).data("name"))
-  console.log(encodeURI($(this).data("name")))
-var song = {
+  var song = {
   name: $(this).data("name")
-}
-$.ajax({
-      url: '/api/song/'+decodeURI($(this).data("name")),
+  }
+  $.ajax({
+      url: '/api/songs/'+$(this).data("name"),
       type: 'POST'
-})
+  })
   })
 
 
@@ -120,7 +119,7 @@ $.ajax({
     name: $(this).data("name")
     }
     $.ajax({
-      url: '/api/album/'+$(this).data("name"),
+      url: '/api/albums/'+album.name,
       type: 'POST'
     })
     })

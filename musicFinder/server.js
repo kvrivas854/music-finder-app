@@ -32,6 +32,10 @@ app.get('/', function (req, res) {
   res.render('frontpage')
 })
 
+app.get('/frontpage', function (req, res) {
+  res.render('frontpage')
+})
+
 app.get('/contact', function(req,res) {
   res.render('contact')
 })
