@@ -6,41 +6,41 @@ var request = require('request');
 var db = require('../models');
 
 // GET route which calls uses Sequelize's findAll method.
-router.get('/', function(req, res) {
-    db.Artist.findAll({
-        order: 'artist_name ASC'
+// router.get('/', function(req, res) {
+//     db.Artist.findAll({
+//         order: 'artist_name ASC'
 
-    }).then(function(data) {
-        var hbsObject = {
-            artists: data
-        };
-        res.render('index', hbsObject);
-    });
-});
+//     }).then(function(data) {
+//         var hbsObject = {
+//             artists: data
+//         };
+//         res.render('artist', hbsObject);
+//     });
+// });
 
-router.get('/song', function(req, res) {
-    db.Song.findAll({
-        order: 'song_name DESC'
+// router.get('/song', function(req, res) {
+//     db.Song.findAll({
+//         order: 'song_name DESC'
 
-    }).then(function(data) {
-        var hbsObject = {
-            songs: data
-        };
-        res.render('index', hbsObject);
-    });
-});
+//     }).then(function(data) {
+//         var hbsObject = {
+//             songs: data
+//         };
+//         res.render('songs', hbsObject);
+//     });
+// });
 
-router.get('/album', function(req, res) {
-    db.Album.findAll({
-        order: 'album_name DESC'
+// router.get('/album', function(req, res) {
+//     db.Album.findAll({
+//         order: 'album_name DESC'
 
-    }).then(function(data) {
-        var hbsObject = {
-            albums: data
-        };
-        res.render('index', hbsObject);
-    });
-});
+//     }).then(function(data) {
+//         var hbsObject = {
+//             albums: data
+//         };
+//         res.render('album', hbsObject);
+//     });
+// });
 
 
 router.post('/api/new/artist', function(req, res) {

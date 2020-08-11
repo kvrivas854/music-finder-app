@@ -3,12 +3,53 @@
 var db = require("../models");
   
 var router = require("express").Router();
+var db = require ("../models")
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-// const song = require("../controllers/musicController.js");
+  router.get('/', function(req, res) {
+    db.Artist.findAll({
+        order: 'artist_name ASC'
+
+    }).then(function(data) {
+        var hbsObject = {
+            artists: data
+        };
+        res.render('artist', hbsObject);
+    });
+});
+
+router.get('/song', function(req, res) {
+    db.Song.findAll({
+        order: 'song_name DESC'
+
+    }).then(function(data) {
+        var hbsObject = {
+            songs: data
+        };
+        res.render('songs', hbsObject);
+    });
+});
+
+router.get('/album', function(req, res) {
+    db.Album.findAll({
+        order: 'album_name DESC'
+
+    }).then(function(data) {
+        var hbsObject = {
+            albums: data
+        };
+        res.render('album', hbsObject);
+    });
+});
+
+
+
+
+
+
 
   // GET route for getting all of the todos
   app.get("/api/songs", function(req, res) {
@@ -20,7 +61,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new todo
-  app.post("/api/songs/:id", function(req, res) {
+  app.post("/api/songs/:name", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
@@ -34,6 +75,30 @@ module.exports = function(app) {
       .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+  });
+
+  app.post("/api/artists/:name", function(req, res) {
+    db.Artist.create({
+      name: req.params.name,
+      added: req.body.added
+    }).then(function(dbArtist) {
+      res.json(dbArtist);
+    })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+  
+  app.post("/api/albums/:name", function(req, res) {
+    db.Album.create({
+      name: req.params.name,
+      added: req.body.added
+    }).then(function(dbAlbum) {
+      res.json(dbAlbum);
+    })
+      .catch(function(err) {
         res.json(err);
       });
   });

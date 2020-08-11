@@ -70,19 +70,18 @@
 
 $(document).on("click", ".add-artist", function () {
 console.log($(this).data("name"))
+app.post("api/artists/:"+$(this).data("name"))
 })
 
 
 $(document).on("click", ".add-track", function () {
   console.log($(this).data("name"))
+  app.post("api/songs/:"+$(this).data("name"))
   })
 
 
   $(document).on("click", ".add-album", function () {
-    //   var query = "INSERT INTO artists (artist) ?";
-    //   connection.query(query, { artist: response.data[i].artist.name }, function(err, res) {
-    //     if (err) throw err;
-    // })
     console.log($(this).data("name"))
+    app.post("api/albums/:"+$(this).data("name"))
     })
 
