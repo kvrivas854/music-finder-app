@@ -44,6 +44,124 @@ app.get('/charts', function(req,res) {
   res.render('charts')
 })
 
+app.get('/song', function(req, res) {
+  db.Song.findAll({}).then(function(data) {
+      var hbsObject = {
+          songs: data
+      };
+      res.render('songs', hbsObject);
+  });
+});
+
+app.get('/album', function(req, res) {
+  db.Album.findAll({}).then(function(data) {
+      var hbsObject = {
+          albums: data
+      };
+      res.render('album', hbsObject);
+  });
+});
+
+app.get('/artist', function(req, res) {
+  db.Artist.findAll({}).then(function(data) {
+      var hbsObject = {
+          artists: data
+      };
+      res.render('artist', hbsObject);
+  });
+});
+
+app.get("/api/songs", function(req, res) {
+  db.Song.findAll({}).then(function(dbSong) {
+    res.json(dbSong);
+  });
+});
+
+app.get("/api/artists", function(req, res) {
+  db.Artist.findAll({}).then(function(dbArtist) {
+    res.json(dbArtist);
+  });
+});
+
+app.get("/api/albums", function(req, res) {
+  db.Album.findAll({}).then(function(dbAlbum) {
+    res.json(dbAlbum);
+  });
+});
+
+app.post("/api/artists/", function(req, res) {
+  db.Artist.create({
+    name: req.body.name,
+    added: req.body.added
+  }).then(function(dbArtist) {
+    res.json(dbArtist);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.post("/api/songs/", function(req, res) {
+  db.Song.create({
+    name: req.body.name,
+    added: req.body.added
+  }).then(function(dbSongPlaylist) {
+    res.json(dbSongPlaylist);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.post("/api/albums/", function(req, res) {
+  db.Album.create({
+    name: req.body.name,
+    added: req.body.added
+  }).then(function(dbAlbum) {
+    res.json(dbAlbum);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+
+app.post("/api/songs/:name", function(req, res) {
+  db.Song.create({
+    name: req.params.name,
+    added: req.body.added
+  }).then(function(dbSongPlaylist) {
+    res.json(dbSongPlaylist);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.post("/api/artists/:name", function(req, res) {
+  db.Artist.create({
+    name: req.params.name,
+    added: req.body.added
+  }).then(function(dbArtist) {
+    res.json(dbArtist);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.post("/api/albums/:name", function(req, res) {
+  db.Album.create({
+    name: req.params.name,
+    added: req.body.added
+  }).then(function(dbAlbum) {
+    res.json(dbAlbum);
+  })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 // // Start our server so that it can begin listening to client requests.
 // app.listen(PORT, function() {
 //   // Log (server-side) when our server has started

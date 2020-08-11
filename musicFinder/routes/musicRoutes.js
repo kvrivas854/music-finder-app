@@ -34,10 +34,7 @@ router.get('/song', function(req, res) {
 });
 
 router.get('/album', function(req, res) {
-    db.Album.findAll({
-        order: 'album_name DESC'
-
-    }).then(function(data) {
+    db.Album.findAll({}).then(function(data) {
         var hbsObject = {
             albums: data
         };

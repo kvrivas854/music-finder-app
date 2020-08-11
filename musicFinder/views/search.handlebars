@@ -89,21 +89,40 @@
 
 
 
-$(document).on("click", ".add-artist", function () {
+$(document).on("click", ".add-artist", function (data) {
 console.log($(this).data("name"))
-app.post("api/artists/:"+$(this).data("name"))
+var artist = {
+  name: $(this).data("name")
+}
+$.ajax({
+      url: '/api/artists/'+$(this).data("name"),
+      type: 'POST'
+})
 })
 
 
 $(document).on("click", ".add-track", function () {
   console.log($(this).data("name"))
-  app.post("api/songs/:"+$(this).data("name"))
+  console.log(encodeURI($(this).data("name")))
+var song = {
+  name: $(this).data("name")
+}
+$.ajax({
+      url: '/api/song/'+decodeURI($(this).data("name")),
+      type: 'POST'
+})
   })
 
 
   $(document).on("click", ".add-album", function () {
     console.log($(this).data("name"))
-    app.post("api/albums/:"+$(this).data("name"))
+    var album = {
+    name: $(this).data("name")
+    }
+    $.ajax({
+      url: '/api/album/'+$(this).data("name"),
+      type: 'POST'
+    })
     })
 
 
