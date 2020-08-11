@@ -4,14 +4,14 @@
             <div class="container artist-cols">
                 <h2>Artist Results</h2>
                 <ul>
-                {{#each artist}}
+                {{#each Artist}}
                     <li class = "li-item">
                         <br>
-                        {{this.artistName}}
+                        {{this.name}}
                     </li>
                     <li class = "li-item">
                         <br>
-                    <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.songName}}</button> 
+                    <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.added}}</button> 
                     </li>
                 {{/each}}
                 </ul>
