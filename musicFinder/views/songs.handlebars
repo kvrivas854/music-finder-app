@@ -4,8 +4,9 @@
             <div class="container songs-cols">
                 <h2>Songs Results</h2>
                 <ul>
-                {{#each song}}
+                {{#each songs}}
                     <li class = "li-item">
+                        <a> {{this.name}} </a>
                         <br>
                     <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.name}}</button> 
                     </li>

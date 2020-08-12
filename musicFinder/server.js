@@ -21,8 +21,6 @@ var db = require("./models")
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var db = require("./models")
-
 // Import routes and give the server access to them.
 var routes = require("./routes/musicRoutes.js");
 
@@ -50,8 +48,9 @@ app.get('/charts', function(req,res) {
 
 app.get('/songs', function(req, res) {
   db.Song.findAll({}).then(function(data) {
+    console.log(data)
       var hbsObject = {
-          songs: data
+          songs: data.map(song => {return {name: song.name, added: song.added, id:song.id}})
       };
       res.render('songs', hbsObject);
   });
@@ -60,7 +59,7 @@ app.get('/songs', function(req, res) {
 app.get('/album', function(req, res) {
   db.Album.findAll({}).then(function(data) {
       var hbsObject = {
-          albums: data
+        albums: data.map(album => {return {name: album.name, added: album.added, id:album.id}})
       };
       res.render('album', hbsObject);
   });
@@ -69,7 +68,7 @@ app.get('/album', function(req, res) {
 app.get('/artist', function(req, res) {
   db.Artist.findAll({}).then(function(data) {
       var hbsObject = {
-          artists: data
+        artists: data.map(artist => {return {name: artist.name, added: artist.added, id:artist.id}})
       };
       res.render('artist', hbsObject);
   });
