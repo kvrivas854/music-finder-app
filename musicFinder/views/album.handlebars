@@ -6,13 +6,10 @@
                 <ul>
                 {{#each albums}}
                     <li class = "li-item">
-                        <br>
+
                         {{this.name}}
                     </li>
-                    <li class = "li-item">
-                        <br>
-                    <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.added}}</button> 
-                    </li>
+                    <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.name}}</button> 
                 {{/each}}
                 </ul>
             </div>
