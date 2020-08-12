@@ -13,6 +13,7 @@
   </div>
  
   <div id="top_x_div" style="margin: 50px 110px"> Results </div>
+  <div id="results"> </div>
   
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,6 +23,7 @@
 
   <script> 
       $("#submit").on("click", function() {
+
 
     var settings = {
       "async": true,
@@ -35,6 +37,8 @@
     }
     
     $.ajax(settings).done(function (response) {
+
+      $('#results').empty()
 
  //   $.get("/api/artist/:"+$("#artist").val()).done(function (response) {
       console.log(name);
@@ -81,8 +85,8 @@
         $(newDiv).append(newPreview)
         $(newDiv).append(newAlbumDiv)
 
-        $('body').append(newDiv)
-        $('body').append("<br>")
+        $('#results').append(newDiv)
+        $('#results').append("<br>")
       }
     });
   })
