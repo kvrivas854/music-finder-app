@@ -2,16 +2,26 @@
     <div class="row">
         <div class="col">
             <div class="container album-cols">
-                <h2>Albums Results</h2>
+        <div class="card" style="width: 18rem;">
+  <div class="card-body"  style="background-color: purple;">
+    <h5 class="card-title">Album Results</h5>
+    <p class="card-text">
+           {{#each albums}}
                 <ul>
-                {{#each albums}}
-                    <li class = "li-item">
 
-                        {{this.name}}
+                    <li class = "li-item"></li>
+                    {{this.name}}
+                        
+                    <button type="submit" class="btn add-btn btn-primary" data-id={{this.id}}>Add</button> 
                     </li>
-                    <button type="submit" class="btn add-btn" data-id={{this.id}}>Add {{this.name}}</button> 
+                    </ul>
+
                 {{/each}}
-                </ul>
+    </p>
+    <a href="/playlist" class="card-link">Playlist</a>
+    <a href="/search" class="card-link">Search more songs</a>
+  </div>
+</div>
             </div>
         </div>
     </div>
