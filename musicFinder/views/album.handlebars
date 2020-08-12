@@ -8,12 +8,14 @@
     <p class="card-text">
            {{#each albums}}
                 <ul>
+
                     <li class = "li-item"></li>
                     {{this.name}}
                         
                     <button type="submit" class="btn add-btn btn-primary" data-id={{this.id}}>Add</button> 
                     </li>
                     </ul>
+
                 {{/each}}
     </p>
     <a href="/playlist" class="card-link">Playlist</a>
