@@ -48,7 +48,7 @@ app.get('/charts', function(req,res) {
   res.render('charts')
 })
 
-app.get('/song', function(req, res) {
+app.get('/songs', function(req, res) {
   db.Song.findAll({}).then(function(data) {
       var hbsObject = {
           songs: data
