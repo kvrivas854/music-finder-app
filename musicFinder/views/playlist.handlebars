@@ -4,11 +4,12 @@
             <div class="container playlist-cols">
                 <h2>Your Playlist</h2>
                 <ul>
-                {{#each songName}}
+                {{#each song.name}}
                     {{#unless this.deleted}}
                     <li class = "li-item">
-                        <br>
-                    <button type="submit" class="btn delete-btn" data-id={{this.id}}>Delete {{this.songName}}</button> 
+                        {{this.song.name}}
+                        
+                    <button type="submit" class="btn delete-btn" data-id={{this.id}}>Delete </button> 
                     </li>  
                     {{/if}}
                 {{/each}}
