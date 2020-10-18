@@ -6,12 +6,28 @@
 }
 
 nav {
+  color:white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 8vh;
+  min-width: 50vh;
   font-family: 'Poppins', sans-serif;
   background-color: #1b072b;
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand {
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover {
+  color: rgb(136 80 181);
+}
+.navbar-toggler-icon {
+  filter: invert(100%) sepia(0%) saturate(1895%) hue-rotate(337deg) brightness(117%) contrast(104%);
+}
+.front-image {
+  position: relative;
+  width: 100%;
+
 }
 
 .log {
@@ -51,45 +67,43 @@ nav {
   display: none;
   cursor: pointer;
 }
+.btn.btn-secondary.dropdown-toggle {
+  display: none;
+  color:white;
+}
 
 @media screen and (max-width:1024px) {
   .nav-links {
     width: 60%;
+  }
+  .dropdown-menu, .dropdown-menu-lg-right {
+    display:none;
+    color:black;
   }
 }
 
 @media screen and (max-width:768px) {
   body{
     overflow-x: hidden;
+    
   }
+}
 
-  .carousel-inner>.item>img {
-    line-height: 1;
-    z-index: 1;
-  }
-
+@media screen and (max-width:600px) {
   .nav-links {
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
-    background-color: #1b072b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
-    z-index: 1000
+    display: none;
   }
-
-  .nav-links li {
-    opacity: 0;
+  .btn.btn-secondary.dropdown-toggle {
+    display: contents;
   }
-
-  .burger{
-    display: block;
-  }
+  /* .front-image {
+    margin: relative;
+    min-width: 40vh;
+  
+  } */
+}
+.title {
+  text-align: center;
 }
 
 .nav-active{
@@ -174,7 +188,6 @@ button {
 
 .wrapper h1{
   font-family: 'Allura', cursive;
-  font-size: 40px;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -198,11 +211,17 @@ button {
   position: relative;
 }
 
+.navbar-brand {
+  float: none;
+}
 .team .team_member h3{
   color: #4bd3f5;
   font-size: 20px;
   margin-top: 50px;
   font-weight: bold;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+  color:rgb(136 80 181);
 }
 
 .team .team_member p.role{
@@ -231,7 +250,7 @@ button {
 }
 
 .team_member {
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
 
