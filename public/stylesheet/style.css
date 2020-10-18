@@ -152,17 +152,10 @@ body {
     text-align: center;
 }
 
-body {
-    color: #fefefe;
-}
-
-h2 {
+body,h2, h4  {
   color: #fefefe;
 }
 
-h4 {
-  color: #fefefe;
-}
 
 li {
   color: black;
